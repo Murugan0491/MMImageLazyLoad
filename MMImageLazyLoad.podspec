@@ -16,7 +16,8 @@ Pod::Spec.new do |s|
           #8.
           s.source              = { :git => "https://github.com/Murugan0491/MMImageLazyLoad.git", :tag => "1.0.0" }
           #9.
-          s.source_files     = "MMImageLazyLoad", "MMImageLazyLoad/**/*.{h,m,swift,png}"
+          s.source_files     = "MMImageLazyLoad", "MMImageLazyLoad/**/*.{h,m,swift}"
 
 	  #10
-end
+	  s.resources = 'MMImageLazyLoad/**/*.{png}'
+    end
