@@ -23,19 +23,12 @@ public class ImageLazyLoading: NSObject {
      - parameter completion: this will return the image after the completion of image request or failure this will return the appropriate image
      
      */
-    public func setImageFromUrl(urlStr: String, placeHolderImage:UIImage? = UIImage.init(named: "LoadingImage"), completion: @escaping(UIImage)->()) {
-        let frameworkBundle = Bundle(for: ImageLazyLoading.self)
-        let bundleURL = frameworkBundle.resourceURL?.appendingPathComponent("MMImageLazyLoad.bundle")
-        let resourceBundle = Bundle(url: bundleURL!)
-        let image = UIImage(named: "LoadingImage", in: resourceBundle, compatibleWith: nil)
-        print(image ?? UIImage())
+    public func setImageFromUrl(urlStr: String, placeHolderImage:UIImage? = UIImage(named: "LoadingImage", in: Bundle(identifier: "org.cocoapods.MMImageLazyLoad"), compatibleWith: nil), completion: @escaping(UIImage)->()) {
         
-        let bundle = Bundle.init(identifier: "www.tcs.com.MMImageLazyLoad")
-        let imagevalue = UIImage.init(named: "LoadingImage", in: bundle, compatibleWith: nil)
         DispatchQueue.main.async {
             completion(placeHolderImage!)
         }
-        let noImage = UIImage.init(named: "NoImage")
+        let noImage = UIImage(named: "NoImage", in: Bundle(identifier: "org.cocoapods.MMImageLazyLoad"), compatibleWith: nil)
         guard let url = URL(string: urlStr) else {
             DispatchQueue.main.async {
                 completion(noImage!)
