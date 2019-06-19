@@ -23,15 +23,15 @@ public class ImageLazyLoading: NSObject {
      - parameter completion: this will return the image after the completion of image request or failure this will return the appropriate image
      
      */
-    public func setImageFromUrl(urlStr: String, placeHolderImage:UIImage? = UIImage(named: "LoadingImage", in: Bundle(identifier: "org.cocoapods.MMImageLazyLoad"), compatibleWith: nil), completion: @escaping(UIImage)->()) {
+    public func setImageFromUrl(urlStr: String, placeHolderImage:UIImage? = UIImage(named: "LoadingImage", in: Bundle(identifier: "org.cocoapods.MMImageLazyLoad"), compatibleWith: nil)  ?? UIImage(), completion: @escaping(UIImage)->()) {
         
         DispatchQueue.main.async {
             completion(placeHolderImage!)
         }
-        let noImage = UIImage(named: "NoImage", in: Bundle(identifier: "org.cocoapods.MMImageLazyLoad"), compatibleWith: nil)
+        let noImage = UIImage(named: "NoImage", in: Bundle(identifier: "org.cocoapods.MMImageLazyLoad"), compatibleWith: nil)  ?? UIImage()
         guard let url = URL(string: urlStr) else {
             DispatchQueue.main.async {
-                completion(noImage!)
+                completion(noImage)
             }
             return
         }
@@ -41,7 +41,7 @@ public class ImageLazyLoading: NSObject {
             let sessionDataTask = session.dataTask(with: request as URLRequest) { (data, response, error) in
                 guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
                     DispatchQueue.main.async {
-                        completion(noImage!)
+                        completion(noImage)
                     }
                     return
                 }
@@ -49,7 +49,7 @@ public class ImageLazyLoading: NSObject {
                 guard let dataValue = data else {
                     //check if the status code is still 200...300, because sometimes responses will return only a status code
                     DispatchQueue.main.async {
-                        completion(noImage!)
+                        completion(noImage)
                     }
                     return
                 }
@@ -59,7 +59,7 @@ public class ImageLazyLoading: NSObject {
                     }
                 } else {
                     DispatchQueue.main.async {
-                        completion(noImage!)
+                        completion(noImage)
                     }
                 }
             }
