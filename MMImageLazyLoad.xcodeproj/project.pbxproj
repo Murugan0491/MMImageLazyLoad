@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		45BC2BDA22BA130D009C2A2C /* MMImageLazyLoad.h in Headers */ = {isa = PBXBuildFile; fileRef = 45BC2BD822BA130D009C2A2C /* MMImageLazyLoad.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		45BC2BE322BA1CD1009C2A2C /* NoImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 45BC2BE022BA1CD1009C2A2C /* NoImage.png */; };
+		45BC2BE422BA1CD1009C2A2C /* ImageLazyLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BC2BE122BA1CD1009C2A2C /* ImageLazyLoading.swift */; };
+		45BC2BE522BA1CD1009C2A2C /* LoadingImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 45BC2BE222BA1CD1009C2A2C /* LoadingImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		45BC2BD522BA130D009C2A2C /* MMImageLazyLoad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MMImageLazyLoad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BC2BD822BA130D009C2A2C /* MMImageLazyLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMImageLazyLoad.h; sourceTree = "<group>"; };
 		45BC2BD922BA130D009C2A2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45BC2BE022BA1CD1009C2A2C /* NoImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoImage.png; sourceTree = "<group>"; };
+		45BC2BE122BA1CD1009C2A2C /* ImageLazyLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLazyLoading.swift; sourceTree = "<group>"; };
+		45BC2BE222BA1CD1009C2A2C /* LoadingImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadingImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +52,9 @@
 		45BC2BD722BA130D009C2A2C /* MMImageLazyLoad */ = {
 			isa = PBXGroup;
 			children = (
+				45BC2BE122BA1CD1009C2A2C /* ImageLazyLoading.swift */,
+				45BC2BE222BA1CD1009C2A2C /* LoadingImage.png */,
+				45BC2BE022BA1CD1009C2A2C /* NoImage.png */,
 				45BC2BD822BA130D009C2A2C /* MMImageLazyLoad.h */,
 				45BC2BD922BA130D009C2A2C /* Info.plist */,
 			);
@@ -95,6 +104,7 @@
 				TargetAttributes = {
 					45BC2BD422BA130D009C2A2C = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -120,6 +130,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45BC2BE522BA1CD1009C2A2C /* LoadingImage.png in Resources */,
+				45BC2BE322BA1CD1009C2A2C /* NoImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45BC2BE422BA1CD1009C2A2C /* ImageLazyLoading.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +274,7 @@
 		45BC2BDE22BA130D009C2A2C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -277,14 +291,17 @@
 				PRODUCT_BUNDLE_IDENTIFIER = www.tcs.com.MMImageLazyLoad;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64 i386";
 			};
 			name = Debug;
 		};
 		45BC2BDF22BA130D009C2A2C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -303,6 +320,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64 i386";
 			};
 			name = Release;
 		};
