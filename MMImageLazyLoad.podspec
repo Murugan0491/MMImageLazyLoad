@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
 
 	  #10
 	  s.resource_bundles = {
-    		'ResourceBundleName' => ['MMImageLazyLoad/**/*']
+    		'ResourceBundleName' => ['MMImageLazyLoad/**/*.png']
   	  }
     end
